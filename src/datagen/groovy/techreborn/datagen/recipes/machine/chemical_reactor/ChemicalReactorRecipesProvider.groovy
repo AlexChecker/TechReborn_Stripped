@@ -210,13 +210,6 @@ class ChemicalReactorRecipesProvider extends TechRebornRecipesProvider {
 		offerChemicalReactorRecipe {
 			power 30
 			time 400
-			ingredients stack(Items.GOLD_BLOCK, 8), Items.APPLE
-			outputs Items.ENCHANTED_GOLDEN_APPLE
-			criterion getCriterionName(Items.GOLD_BLOCK), getCriterionConditions(Items.GOLD_BLOCK)
-		}
-		offerChemicalReactorRecipe {
-			power 30
-			time 400
 			ingredients Items.BLAZE_POWDER, Items.ENDER_PEARL
 			outputs stack(Items.ENDER_EYE, 2)
 			criterion getCriterionName(Items.BLAZE_POWDER), getCriterionConditions(Items.BLAZE_POWDER)
