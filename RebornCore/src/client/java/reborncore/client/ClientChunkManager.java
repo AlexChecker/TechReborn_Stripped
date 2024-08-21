@@ -33,7 +33,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.BlockPos;
 import org.joml.Matrix4f;
 import reborncore.common.chunkloading.ChunkLoaderManager;
-import reborncore.common.network.serverbound.ChunkLoaderRequestPayload;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,7 @@ public class ClientChunkManager {
 
 	public static void toggleLoadedChunks(BlockPos chunkLoader) {
 		if (loadedChunks.isEmpty()) {
-			ClientPlayNetworking.send(new ChunkLoaderRequestPayload(chunkLoader));
+			//ClientPlayNetworking.send(new ChunkLoaderRequestPayload(chunkLoader));
 		} else {
 			loadedChunks.clear();
 		}

@@ -32,7 +32,6 @@ import reborncore.common.network.clientbound.FluidConfigSyncPayload;
 import reborncore.common.network.clientbound.QueueItemStacksPayload;
 import reborncore.common.network.clientbound.ScreenHandlerUpdatePayload;
 import reborncore.common.network.clientbound.SlotSyncPayload;
-import reborncore.common.network.serverbound.ChunkLoaderRequestPayload;
 import reborncore.common.network.serverbound.FluidConfigSavePayload;
 import reborncore.common.network.serverbound.FluidIoSavePayload;
 import reborncore.common.network.serverbound.IoSavePayload;
@@ -56,7 +55,7 @@ public class Packets {
 	}
 
 	private static void serverbound(PayloadTypeRegistry<RegistryByteBuf> registry) {
-		registry.register(ChunkLoaderRequestPayload.ID, ChunkLoaderRequestPayload.PACKET_CODEC);
+		//registry.register(ChunkLoaderRequestPayload.ID, ChunkLoaderRequestPayload.PACKET_CODEC);
 		registry.register(FluidConfigSavePayload.ID, FluidConfigSavePayload.PACKET_CODEC);
 		registry.register(FluidIoSavePayload.ID, FluidIoSavePayload.PACKET_CODEC);
 		registry.register(IoSavePayload.ID, IoSavePayload.PACKET_CODEC);

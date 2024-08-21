@@ -101,11 +101,11 @@ public class ServerBoundPackets {
 			NetworkManager.sendToWorld(new SlotSyncPayload(payload.pos(), machine.getSlotConfiguration()), (ServerWorld) machine.getWorld());
 		});
 
-		ServerPlayNetworking.registerGlobalReceiver(ChunkLoaderRequestPayload.ID, (payload, context) -> {
-			payload.getBlockEntity(MachineBaseBlockEntity.class, context.player());
-			ChunkLoaderManager chunkLoaderManager = ChunkLoaderManager.get(context.player().getWorld());
-			chunkLoaderManager.syncChunkLoaderToClient(context.player(), payload.pos());
-		});
+		//ServerPlayNetworking.registerGlobalReceiver(ChunkLoaderRequestPayload.ID, (payload, context) -> {
+		//	payload.getBlockEntity(MachineBaseBlockEntity.class, context.player());
+		//	ChunkLoaderManager chunkLoaderManager = ChunkLoaderManager.get(context.player().getWorld());
+		//	chunkLoaderManager.syncChunkLoaderToClient(context.player(), payload.pos());
+		//});
 
 		ServerPlayNetworking.registerGlobalReceiver(SetRedstoneStatePayload.ID, (payload, context) -> {
 			var machine = payload.getBlockEntity(MachineBaseBlockEntity.class, context.player());
