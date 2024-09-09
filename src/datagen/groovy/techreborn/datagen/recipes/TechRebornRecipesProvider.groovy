@@ -51,7 +51,6 @@ import techreborn.datagen.recipes.machine.fluid_generator.FluidGeneratorRecipeJs
 import techreborn.datagen.recipes.machine.fusion_reactor.FusionReactorRecipeJsonFactory
 import techreborn.datagen.recipes.machine.industrial_grinder.IndustrialGrinderRecipeJsonFactory
 import techreborn.datagen.recipes.machine.industrial_sawmill.IndustrialSawmillRecipeJsonFactory
-import techreborn.datagen.recipes.machine.fluid_replicator.FluidReplicatorRecipeJsonFactory
 import techreborn.datagen.recipes.machine.rolling_machine.RollingMachineRecipeJsonFactory
 import techreborn.init.ModFluids
 import techreborn.init.ModRecipes
@@ -257,9 +256,7 @@ abstract class TechRebornRecipesProvider extends FabricRecipeProvider {
 		IndustrialSawmillRecipeJsonFactory.createIndustrialSawmill(this, closure).offerTo(exporter)
 	}
 
-	def offerFluidReplicatorRecipe(@DelegatesTo(value = FluidReplicatorRecipeJsonFactory.class, strategy = Closure.DELEGATE_FIRST) Closure closure) {
-		FluidReplicatorRecipeJsonFactory.createFluidReplicator(this, closure).offerTo(exporter)
-	}
+
 
 	def offerRollingMachineRecipe(@DelegatesTo(value = RollingMachineRecipeJsonFactory.class, strategy = Closure.DELEGATE_FIRST) Closure closure) {
 		RollingMachineRecipeJsonFactory.createRollingMachine(this, closure).offerTo(exporter)
