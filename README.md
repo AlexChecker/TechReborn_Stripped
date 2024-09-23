@@ -1,4 +1,4 @@
-#This is a forked version of Tech Reborn, stripped for usage on KeyClub server! For official repo see https://github.com/TechReborn/TechReborn
+# This is a forked version of Tech Reborn, stripped for usage on KeyClub server! For official repo see https://github.com/TechReborn/TechReborn
 
 ![](https://i.imgur.com/m0y21EK.png "Tech Reborn")
 
