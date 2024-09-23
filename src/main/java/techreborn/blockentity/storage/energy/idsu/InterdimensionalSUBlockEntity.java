@@ -56,67 +56,67 @@ public class InterdimensionalSUBlockEntity extends EnergyStorageBlockEntity impl
 		super(TRBlockEntities.INTERDIMENSIONAL_SU, pos, state, "IDSU", 2, TRContent.Machine.INTERDIMENSIONAL_SU.block, RcEnergyTier.INSANE, TechRebornConfig.idsuMaxEnergy);
 	}
 
-	@Override
-	public EnergyStorage getSideEnergyStorage(@Nullable Direction side) {
-		if (ownerUdid == null || ownerUdid.isEmpty()) {
-			return EnergyStorage.EMPTY;
-		}
-		if (world.isClient) {
-			// Can't access the global storage, return a dummy. (Only for existence checks)
-			return new SimpleEnergyStorage(TechRebornConfig.idsuMaxEnergy, 0, 0);
-		}
-		EnergyStorage globalStorage = IDSUManager.getPlayer(world.getServer(), ownerUdid).getStorage();
-		return new DelegatingEnergyStorage(globalStorage, null) {
-			@Override
-			public long insert(long maxAmount, TransactionContext transaction) {
-				return backingStorage.get().insert(Math.min(maxAmount, getMaxInput(side)), transaction);
-			}
+	//@Override
+	//public EnergyStorage getSideEnergyStorage(@Nullable Direction side) {
+	//	if (ownerUdid == null || ownerUdid.isEmpty()) {
+	//		return EnergyStorage.EMPTY;
+	//	}
+	//	if (world.isClient) {
+	//		// Can't access the global storage, return a dummy. (Only for existence checks)
+	//		return new SimpleEnergyStorage(TechRebornConfig.idsuMaxEnergy, 0, 0);
+	//	}
+	//	EnergyStorage globalStorage = IDSUManager.getPlayer(world.getServer(), ownerUdid).getStorage();
+	//	return new DelegatingEnergyStorage(globalStorage, null) {
+	//		@Override
+	//		public long insert(long maxAmount, TransactionContext transaction) {
+	//			return backingStorage.get().insert(Math.min(maxAmount, getMaxInput(side)), transaction);
+	//		}
+//
+	//		@Override
+	//		public long extract(long maxAmount, TransactionContext transaction) {
+	//			return backingStorage.get().extract(Math.min(maxAmount, getMaxOutput(side)), transaction);
+	//		}
+	//	};
+	//}
 
-			@Override
-			public long extract(long maxAmount, TransactionContext transaction) {
-				return backingStorage.get().extract(Math.min(maxAmount, getMaxOutput(side)), transaction);
-			}
-		};
-	}
+	//@Override
+	//public long getStored() {
+	//	if (ownerUdid == null || ownerUdid.isEmpty()) {
+	//		return 0;
+	//	}
+	//	if (world.isClient) {
+	//		return clientEnergy;
+	//	}
+	//	return IDSUManager.getPlayer(world.getServer(), ownerUdid).getEnergy();
+	//}
 
-	@Override
-	public long getStored() {
-		if (ownerUdid == null || ownerUdid.isEmpty()) {
-			return 0;
-		}
-		if (world.isClient) {
-			return clientEnergy;
-		}
-		return IDSUManager.getPlayer(world.getServer(), ownerUdid).getEnergy();
-	}
+	//@Override
+	//public void setStored(long energy) {
+	//	if (ownerUdid == null || ownerUdid.isEmpty()) {
+	//		return;
+	//	}
+	//	if (world.isClient) {
+	//		clientEnergy = energy;
+	//	} else {
+	//		IDSUManager.getPlayer(world.getServer(), ownerUdid).setEnergy(energy);
+	//	}
+	//}
 
-	@Override
-	public void setStored(long energy) {
-		if (ownerUdid == null || ownerUdid.isEmpty()) {
-			return;
-		}
-		if (world.isClient) {
-			clientEnergy = energy;
-		} else {
-			IDSUManager.getPlayer(world.getServer(), ownerUdid).setEnergy(energy);
-		}
-	}
-
-	@Override
-	public void useEnergy(long extract) {
-		if (ownerUdid == null || ownerUdid.isEmpty()) {
-			return;
-		}
-		if (world.isClient) {
-			throw new UnsupportedOperationException("cannot set energy on the client!");
-		}
-		long energy = IDSUManager.getPlayer(world.getServer(), ownerUdid).getEnergy();
-		if (extract > energy) {
-			extract = energy;
-		}
-
-		setStored(energy - extract);
-	}
+	//@Override
+	//public void useEnergy(long extract) {
+		//if (ownerUdid == null || ownerUdid.isEmpty()) {
+		//	return;
+		//}
+		//if (world.isClient) {
+		//	throw new UnsupportedOperationException("cannot set energy on the client!");
+		//}
+		//long energy = IDSUManager.getPlayer(world.getServer(), ownerUdid).getEnergy();
+		//if (extract > energy) {
+		//	extract = energy;
+		//}
+//
+		//setStored(energy - extract);
+	//}
 
 	@Override
 	protected boolean shouldHandleEnergyNBT() {

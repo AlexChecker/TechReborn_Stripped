@@ -45,22 +45,22 @@ public class InterdimensionalSUBlock extends EnergyStorageBlock {
 		return new InterdimensionalSUBlockEntity(pos, state);
 	}
 
-	@Override
-	public BlockState getPlacementState(ItemPlacementContext context) {
-		final BlockEntity blockEntity = context.getWorld().getBlockEntity(context.getBlockPos());
-		if (blockEntity instanceof InterdimensionalSUBlockEntity) {
-			((InterdimensionalSUBlockEntity) blockEntity).ownerUdid = context.getPlayer().getUuid().toString();
-		}
-		return this.getDefaultState();
-	}
+	//@Override
+	//public BlockState getPlacementState(ItemPlacementContext context) {
+	//	final BlockEntity blockEntity = context.getWorld().getBlockEntity(context.getBlockPos());
+	//	if (blockEntity instanceof InterdimensionalSUBlockEntity) {
+	//		((InterdimensionalSUBlockEntity) blockEntity).ownerUdid = context.getPlayer().getUuid().toString();
+	//	}
+	//	return this.getDefaultState();
+	//}
 
 	@Override
 	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-		super.onPlaced(world, pos, state, placer, stack);
-		BlockEntity blockEntity = world.getBlockEntity(pos);
-		if (blockEntity instanceof InterdimensionalSUBlockEntity) {
-			((InterdimensionalSUBlockEntity) blockEntity).ownerUdid = placer.getUuid().toString();
-		}
+		//super.onPlaced(world, pos, state, placer, stack);
+		//BlockEntity blockEntity = world.getBlockEntity(pos);
+		//if (blockEntity instanceof InterdimensionalSUBlockEntity) {
+		//	((InterdimensionalSUBlockEntity) blockEntity).ownerUdid = placer.getUuid().toString();
+		//}
 	}
 
 }
